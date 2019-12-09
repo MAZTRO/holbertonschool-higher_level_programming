@@ -10,14 +10,14 @@ int check_cycle(listint_t *list)
 	First = list;
 	Second = list;
 
-	while (First->next && Second->next || First)
+	while (First->next && Second && First)
 	{
+		First = First->next->next;
+		Second = Second->next;
 		if (First->next->next == Second->next)
 		{
 			return (1);
 		}
-		First = First->next->next;
-		Second = Second->next;
 	}
 	return (0);
 }
