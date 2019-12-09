@@ -10,7 +10,7 @@ int check_cycle(listint_t *list)
 	First = list;
 	Second = list;
 
-	while (First->next && Second->next && First)
+	while (First->next && Second->next || First)
 	{
 		if (First->next->next == Second->next)
 		{
