@@ -2,8 +2,8 @@
 import random
 number = random.randint(-10000, 10000)
 if number < 0:
-    number = -(number)
-    mod = number % 10
+    negative = abs(number) % 10
+    mod = -(negative)
 else:
     mod = number % 10
 last = mod
