@@ -21,13 +21,20 @@ listint_t *insert_node(listint_t **head, int number)
 	while (hare->next != NULL)
 	{
 		hare = hare->next;
+		if (tortoise->n == number || hare->n == number)
+		{
+			free(new);
+			return (NULL);
+		}
 		if (tortoise->n < number && hare->n > number)
 		{
 			new->n = number;
 			new->next = hare;
 			tortoise->next = new;
+			return (new);
 		}
 		tortoise = tortoise->next;
 	}
-	return (new);
+	free(new);
+	return (add_nodeint_end(head, number));
 }
