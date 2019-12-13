@@ -11,19 +11,19 @@ if __name__ == "__main__":
         exit(1)
     if (sys.argv[2] == '+'):
         print("{:d} {:s} {:d}\
- = {:d}".format(numb_1, opp, numb_2, numb_1 + numb_2))
+ = {:d}".format(numb_1, opp, numb_2, calculator_1.add(numb_1, numb_2)))
         exit(0)
     elif (sys.argv[2] == '-'):
         print("{:d} {:s} {:d}\
- = {:d}".format(numb_1, opp, numb_2, numb_1 - numb_2))
+ = {:d}".format(numb_1, opp, numb_2, calculator_1.sub(numb_1, numb_2)))
         exit(0)
     elif (sys.argv[2] == '*'):
         print("{:d} {:s} {:d}\
- = {:d}".format(numb_1, opp, numb_2, numb_1 * numb_2))
+ = {:d}".format(numb_1, opp, numb_2, calculator_1.mul(numb_1, numb_2)))
         exit(0)
     elif (sys.argv[2] == '/'):
         print("{:d} {:s} {:d}\
- = {:d}".format(numb_1, opp, numb_2, numb_1 // numb_2))
+ = {:d}".format(numb_1, opp, numb_2, calculator_1.div(numb_1, numb_2)))
         exit(0)
     elif (sys.argv[2] != '+' or sys.argv[2] != '-'):
         print("Unknown operator. Available operators: +, -, * and /")
