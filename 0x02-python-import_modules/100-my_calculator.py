@@ -3,12 +3,13 @@ if __name__ == "__main__":
     import sys
     import calculator_1
 
-    numb_1 = int(sys.argv[1])
-    opp = sys.argv[2]
-    numb_2 = int(sys.argv[3])
     if (len(sys.argv) != 4):
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         exit(1)
+    numb_1 = int(sys.argv[1])
+    opp = sys.argv[2]
+    numb_2 = int(sys.argv[3])
+
     if (sys.argv[2] == '+'):
         print("{:d} {:s} {:d}\
  = {:d}".format(numb_1, opp, numb_2, calculator_1.add(numb_1, numb_2)))
