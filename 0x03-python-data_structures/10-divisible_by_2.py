@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 def divisible_by_2(my_list=[]):
+    my_oun_list = []
     if (my_list):
         pos = 0
         for div in my_list:
