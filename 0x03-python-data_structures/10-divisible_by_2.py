@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 def divisible_by_2(my_list=[]):
     if (my_list):
-        my_oun_list = my_list.copy()
-        for div in my_oun_list:
-            if (my_oun_list[div] % 2 == 0):
-                my_oun_list[div] = True
+        pos = 0
+        for div in my_list:
+            if (pos % 2 == 0):
+                my_oun_list.insert(pos, True)
             else:
-                my_oun_list[div] = False
+                my_oun_list.insert(pos, False)
+            pos += 1
         return (my_oun_list)
