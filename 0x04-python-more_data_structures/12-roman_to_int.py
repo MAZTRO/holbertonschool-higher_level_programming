@@ -17,3 +17,5 @@ def roman_to_int(roman_string):
             for n in roman_string:
                 X += sum(map(lambda R: D[R] if R == n else 0, D))
             return (X)
+    else:
+        return (0)
