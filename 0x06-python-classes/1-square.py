@@ -6,7 +6,7 @@ class Square:
     Attributes:
         __size (int): Value of the an edge of the square.
     """
-    def __init__(self):
+    def __init__(self, size):
         """ __init__method to initialize the atributes.
         Args:
             size (int): Size of the edge of the square.
