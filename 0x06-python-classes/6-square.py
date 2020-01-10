@@ -7,10 +7,6 @@ class Square:
         __size (int): Value of the an edge of the square.
     """
     def __init__(self, size=0, position=(0, 0)):
-        """ __init__method to initialize the atributes.
-        Args:
-            size (int): Size of the edge of the square.
-        """
         if (type(size and position[0] and position[1]) is not int):
             raise TypeError('size must be an integer')
         elif size < 0:
@@ -20,10 +16,6 @@ class Square:
             self.__position = position
 
     def area(self):
-        """ area method to power the atributes.
-        Args:
-            Nothing.
-        """
         return (self.__size ** 2)
 
     @property
@@ -32,10 +24,6 @@ class Square:
 
     @size.setter
     def size(self, value):
-        """ size method to initialize the atributes.
-        Args:
-            size (int): Size of the edge of the square.
-        """
         if type(value) is not int:
             raise TypeError('size must be an integer')
         elif value < 0:
@@ -49,9 +37,11 @@ class Square:
 
     @position.setter
     def position(self, value):
-        if type(value[0] and value[1]) is not int:
+        if type(value) is not tuple:
             raise TypeError('position must be a tuple of 2 positive integers')
-        elif type(value) is not tuple or len(value) is not 2:
+        elif type(value[0] and value[1]) is not int:
+            raise TypeError('position must be a tuple of 2 positive integers')
+        elif len(value) != 2:
             raise TypeError('position must be a tuple of 2 positive integers')
         elif value[0] < 0 or value[1] < 0:
             raise TypeError('position must be a tuple of 2 positive integers')
@@ -59,8 +49,8 @@ class Square:
             self.__position = value
 
     def my_print(self):
-        if self.__size == 0:
-            print()
+        if self.__size <= 0:
+            print("\n", end='')
         else:
             for count_1 in range(self.__position[1]):
                 print()
