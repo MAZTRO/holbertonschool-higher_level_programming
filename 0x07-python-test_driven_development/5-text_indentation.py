@@ -11,17 +11,20 @@ def text_indentation(text):
         a and b must be first casted to integers if they are float
     """
 
-    if (type(text) is not str):
+    if (type(text) is not str or len(text) == 0):
         raise TypeError("text must be a string")
     else:
-        count = 0
         if text is not None:
+            count = 0
             text = text.strip()
-            for idx in text:
-                if idx in '.?:':
-                    print(idx, end='')
+            for char in text:
+                if (char is ' ' and count == 1):
+                    temp = 0
+                    continue
+                if char in '.?:':
+                    print(char, end='')
+                    print('\n')
                     count = 1
-                    print("\n")
-                if (idx != ' ' and count == 1):
-                    print(idx, end='')
-                count = 0
+                else:
+                    print(char, end='')
+                    count = 0

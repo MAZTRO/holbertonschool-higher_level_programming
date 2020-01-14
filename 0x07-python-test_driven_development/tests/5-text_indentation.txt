@@ -17,7 +17,7 @@ text_indentation("   ?:.   ")
 .
 <BLANKLINE>
 
->>> text_indentation(" .??:?. “)
+>>> text_indentation(" .??:?. ")
 .
 <BLANKLINE>
 ?
