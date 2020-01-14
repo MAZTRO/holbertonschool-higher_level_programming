@@ -18,5 +18,8 @@ def print_square(size):
     elif (size < 0):
         raise ValueError("size must be >= 0")
     else:
-        for count in range(size):
-            print("#" * size)
+        if (size == 0):
+            print("\n", end='')
+        else:
+            for count in range(size):
+                print("#" * size)

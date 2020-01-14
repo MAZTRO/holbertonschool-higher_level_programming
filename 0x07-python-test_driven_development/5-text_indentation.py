@@ -14,8 +14,14 @@ def text_indentation(text):
     if (type(text) is not str):
         raise TypeError("text must be a string")
     else:
+        count = 0
         if text is not None:
-            text = text.replace(". ", ".\n\n")
-            text = text.replace("? ", "?\n\n")
-            text = text.replace(": ", ":\n\n")
-        print(text, end='')
+            text = text.strip()
+            for idx in text:
+                if idx in '.?:':
+                    print(idx, end='')
+                    count = 1
+                    print("\n")
+                if (idx != ' ' and count == 1):
+                    print(idx, end='')
+                count = 0

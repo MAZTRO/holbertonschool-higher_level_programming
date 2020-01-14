@@ -10,22 +10,22 @@ def matrix_divided(matrix, div):
     """
         a and b must be first casted to integers if they are float
     """
+    if (type(matrix) is not list or len(matrix) == 0):
+        raise TypeError('matrix must be a matrix \
+(list of lists) of integers/floats')
     if ((type(div) is not int) and (type(div) is not float)):
         raise TypeError("div must be a number")
     if div == 0:
         raise ZeroDivisionError("division by zero")
-    if (type(matrix) is not list):
-        raise TypeError('matrix must be a matrix \
-(list of lists) of integers/floats')
 
     new_list = []
     res = []
     for length in matrix:
-        if len(length) != len(matrix[0]):
-            raise TypeError('Each row of the matrix must have the same size')
-        if type(length) is not list:
+        if type(length) is not list or len(length) == 0:
             raise TypeError('matrix must be a matrix \
 (list of lists) of integers/floats')
+        if len(length) != len(matrix[0]):
+            raise TypeError('Each row of the matrix must have the same size')
         for test_val in length:
             if (type(test_val) is not int) and (type(test_val) is not float):
                 raise TypeError('matrix must be a matrix \
