@@ -1,15 +1,19 @@
 #!/usr/bin/python3
-"""function that adds 2 integers.
-    Returns an integer: the addition of a and b.
-    a and b must be integers or floats, otherwise raise a TypeError
-    exception with the message a must be an integer or b must be an integer
+"""function that divide a matrix by a integer.
+
+    Returns: New matrix with the result
 """
 
 
 def matrix_divided(matrix, div):
+    """Function to divide:
+        Args:
+            Matrix (list): The lists to divide by div
+            div (int): the divisor
+        Returns:
+            New matrix with the result
     """
-        a and b must be first casted to integers if they are float
-    """
+
     if (type(matrix) is not list or len(matrix) == 0):
         raise TypeError('matrix must be a matrix \
 (list of lists) of integers/floats')

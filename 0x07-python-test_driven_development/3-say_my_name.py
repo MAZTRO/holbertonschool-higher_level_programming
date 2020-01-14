@@ -1,14 +1,17 @@
 #!/usr/bin/python3
-"""function that adds 2 integers.
-    Returns an integer: the addition of a and b.
-    a and b must be integers or floats, otherwise raise a TypeError
-    exception with the message a must be an integer or b must be an integer
+"""function that print the first nam and last name.
+
+    Returns: Nothing, only print
 """
 
 
 def say_my_name(first_name, last_name=""):
-    """
-        a and b must be first casted to integers if they are float
+    """Function that print a name:
+        Args:
+            first_name (str): The first string
+            last_name (str):: the second string
+        Returns:
+            Nothing, only print
     """
 
     if (type(first_name) is not str):

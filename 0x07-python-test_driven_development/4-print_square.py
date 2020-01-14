@@ -1,14 +1,16 @@
 #!/usr/bin/python3
-"""function that adds 2 integers.
-    Returns an integer: the addition of a and b.
-    a and b must be integers or floats, otherwise raise a TypeError
-    exception with the message a must be an integer or b must be an integer
+"""function that print a square with "#" character.
+
+    Returns: Nothing, only print
 """
 
 
 def print_square(size):
-    """
-        a and b must be first casted to integers if they are float
+    """Function that print a square:
+        Args:
+            size (int): The size of the square.
+        Returns:
+            Nothing, only print
     """
 
     if (type(size) is float):
