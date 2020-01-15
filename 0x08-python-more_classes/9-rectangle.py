@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+    Class to calculate a Rectangule.
+"""
 
 
 class Rectangle:
@@ -27,9 +30,9 @@ class Rectangle:
 
     @width.setter
     def width(self, value):
-        if (type(self.width) is not int):
+        if (type(value) is not int):
             raise TypeError("width must be an integer")
-        elif (self.width < 0):
+        elif (value < 0):
             raise ValueError("width must be >= 0")
         else:
             self.__width = value
@@ -40,9 +43,9 @@ class Rectangle:
 
     @height.setter
     def height(self, value):
-        if (type(self.__height) is not int):
+        if (type(value) is not int):
             raise TypeError("height must be an integer")
-        elif (self.__height < 0):
+        elif (value < 0):
             raise ValueError("height must be >= 0")
         else:
             self.__height = value
@@ -59,8 +62,10 @@ class Rectangle:
         if (self.__height == 0 or self.__width == 0):
             return ("")
         else:
-            matrix_a = ((str(self.print_symbol) * self.__width) + "\n") * (self.__height - 1)
-            matrix_b = (str(self.print_symbol) * self.__width) * (1)
+            a = self.__width
+            b = self.__height
+            matrix_a = ((str(self.print_symbol) * a) + "\n") * (b - 1)
+            matrix_b = (str(self.print_symbol) * a) * (1)
             return (matrix_a + matrix_b)
 
     def __repr__(self):
@@ -85,4 +90,4 @@ class Rectangle:
 
     @classmethod
     def square(cls, size=0):
-        return (cls(width = size, height = size))
+        return (cls(width=size, height=size))
