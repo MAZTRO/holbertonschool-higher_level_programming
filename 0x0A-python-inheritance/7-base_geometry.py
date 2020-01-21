@@ -1,4 +1,11 @@
 #!/usr/bin/python3
+"""
+    Write a class BaseGeometry:
+    that add Public instance method:
+    that validates value
+"""
+
+
 class BaseGeometry:
     def area(self):
         raise Exception("area() is not implemented")
