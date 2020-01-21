@@ -11,4 +11,4 @@ def read_lines(filename="", nb_lines=0):
             my_file.seek(0)
             for line in range(nb_lines):
                 line += 1
-                print(my_file.readline() ,end='')
+                print(my_file.readline(), end='')
