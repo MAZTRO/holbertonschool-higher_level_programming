@@ -7,7 +7,7 @@ if __name__ == "__main__":
     r1 = Rectangle(3, 2)
     print(r1.area())
 
-    r2 = Rectangle(2, 10)
+    r2 = Rectangle(2, -2)
     print(r2.area())
 
     r3 = Rectangle(8, 7, 0, 0, 12)

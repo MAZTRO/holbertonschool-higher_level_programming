@@ -5,30 +5,34 @@ from models.base import Base
 class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
         super().__init__(id)
-        if (type(width) is not int or width is None):
-            raise TypeError("width must be an integer")
-        if (width <= 0):
-            raise ValueError("width must be >= 0")
+        self.verify(width=width, height=height, x=x, y=y, id=id)
         self.__width = width
-
-        if (type(height) is not int or height is None):
-            raise TypeError("height must be an integer")
-        if (height <= 0):
-            raise ValueError("height must be >= 0")
         self.__height = height
-
-        if (type(x) is not int):
-            raise TypeError("x must be an integer")
-        if (x < 0):
-            print("Oe")
-            raise ValueError("x must be >= 0")
         self.__x = x
-
-        if (type(y) is not int):
-            raise TypeError("y must be an integer")
-        if (y < 0):
-            raise ValueError("y must be >= 0")
         self.__y = y
+
+    def verify(self, **kwargs):
+        for key, val in kwargs.items():
+            if (key == "width"):
+                if (type(val) is not int or val is None):
+                    raise TypeError("width must be an integer")
+                if (val <= 0):
+                    raise ValueError("width must be >= 0")
+            if (key == "height"):
+                if (type(val) is not int or val is None):
+                    raise TypeError("height must be an integer")
+                if (val <= 0):
+                    raise ValueError("height must be >= 0")
+            if (key == "x"):
+                if (type(val) is not int):
+                    raise TypeError("x must be an integer")
+                if (val < 0):
+                    raise ValueError("x must be >= 0")
+            if (key == "y"):
+                if (type(val) is not int):
+                    raise TypeError("y must be an integer")
+                if (val < 0):
+                    raise ValueError("y must be >= 0")
 
     @property
     def width(self):
@@ -36,10 +40,7 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
-        if (type(value) is not int or value is None):
-            raise TypeError("width must be an integer")
-        if (value <= 0):
-            raise ValueError("width must be >= 0")
+        self.verify(width=value)
         self.__width = value
 
     @property
@@ -48,11 +49,8 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, value):
-        if (type(value) is not int or value is None):
-            raise TypeError("height must be an integer")
-        if (value <= 0):
-            raise ValueError("height must be >= 0")
-        self.__height = height
+        self.verify(height=value)
+        self.__height = value
 
     @property
     def x(self):
@@ -60,11 +58,8 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
-        if (type(value) is not int):
-            raise TypeError("x must be an integer")
-        if (value < 0):
-            raise ValueError("x must be >= 0")
-        self.__x = x
+        self.verify(x=value)
+        self.__x = value
 
     @property
     def y(self):
@@ -72,11 +67,8 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
-        if (type(value) is not int):
-            raise TypeError("y must be an integer")
-        if (value < 0):
-            raise ValueError("y must be >= 0")
-        self.__y = y
+        self.verify(y=value)
+        self.__y = value
 
     def area(self):
         return (self.__width * self.__height)
@@ -85,6 +77,7 @@ class Rectangle(Base):
         if (self.__y > 0):
             print("\n" * (self.__y - 1))
         for count in range(self.__height):
+            count += 1
             print((" " * self.__x) + ("#" * self.__width))
 
     def __str__(self):
@@ -93,15 +86,11 @@ class Rectangle(Base):
 
     def update(self, *args, **kwargs):
         if (len(args) != 0):
-            if (len(args) == 1):
-                super().__init__(args[0])
-            if (len(args) == 2):
-                self.__width = args[1]
-            if (len(args) == 3):
-                self.__height = args[2]
-            if (len(args) == 4):
-                self.__x = args[3]
-            if (len(args) == 5):
-                self.__y = args[4]
+            my_list = ["id", "width", "height", "x", "y"]
+            cnt = 0
+            for atr in args:
+                setattr(self, my_list[cnt], atr)
+                cnt += 1
         else:
-            pass
+            for key, val in kwargs.items():
+                setattr(self, key, val)
