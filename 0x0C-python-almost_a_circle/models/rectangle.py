@@ -97,6 +97,8 @@ class Rectangle(Base):
                 setattr(self, key, val)
 
     def to_dictionary(self):
-        atr = {"id": self.id, "width": self.__width, "height\
-": self.__height, "x": self.__x, "y": self.__y}
-        return (atr)
+        dic = {}
+        my_list = ["id", "width", "height", "x", "y"]
+        for idx in my_list:
+            dic[idx] = getattr(self, idx)
+        return (dic)
