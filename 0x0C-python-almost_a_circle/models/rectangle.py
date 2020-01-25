@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 from models.base import Base
+import json
 
 
 class Rectangle(Base):
@@ -94,3 +95,8 @@ class Rectangle(Base):
         else:
             for key, val in kwargs.items():
                 setattr(self, key, val)
+
+    def to_dictionary(self):
+        atr = {"id": self.id, "width": self.__width, "height\
+": self.__height, "x": self.__x, "y": self.__y}
+        return (atr)
