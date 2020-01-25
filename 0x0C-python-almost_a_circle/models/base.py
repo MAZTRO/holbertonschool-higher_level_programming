@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import json
+import turtle
 
 
 class Base:
@@ -58,3 +59,59 @@ class Base:
             for dic in ins_dic:
                 inst.append(cls.create(**dic))
         return inst
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        dic = []
+        if len(list_objs) != 0:
+            for obj in list_objs:
+                name = obj.__class__.__name__
+                dic.append(obj.to_dictionary())
+                name += ".csv"
+            with open(name, "w") as file:
+                file.write(cls.to_json_string(dic))
+        else:
+            name = cls.__name__
+            name += ".csv"
+            with open(name, "w") as file:
+                file.write("[]")
+
+    @classmethod
+    def load_from_file_csv(cls):
+        name = cls.__name__
+        name += ".csv"
+        with open(name, "r") as my_file:
+            inst = []
+            ins_dic = cls.from_json_string(my_file.read())
+            for dic in ins_dic:
+                inst.append(cls.create(**dic))
+        return inst
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        turtle.setup(width=1280, height=720, startx=0, starty=0)
+        turtle.delay(50)
+        turtle.bgcolor("Bisque")
+        turtle.pencolor("Brown")
+        turtle.pensize(5)
+        list_dict = []
+        count = 0
+        colors = ["Medium blue", "Dark Red", "Sea Green"]
+        for figure in list_rectangles:
+            list_dict.append(figure.to_dictionary())
+        for attr in list_dict:
+            turtle.penup()
+            turtle.setposition(attr["x"], attr["y"])
+            turtle.pendown()
+            turtle.pencolor(colors[count])
+            print(attr)
+            turtle.forward(attr["width"])
+            turtle.left(90)
+            turtle.forward(attr["height"])
+            turtle.left(90)
+            turtle.forward(attr["width"])
+            turtle.left(90)
+            turtle.forward(attr["height"])
+            turtle.left(90)
+            # turtle.clear()
+            count += 1
