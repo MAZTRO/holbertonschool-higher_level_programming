@@ -89,29 +89,159 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
+        turtle.title("Holberton Grafics   --    by Jonatan Mazo")
+        turtle.colormode(255)
         turtle.setup(width=1280, height=720, startx=0, starty=0)
-        turtle.delay(50)
-        turtle.bgcolor("Bisque")
-        turtle.pencolor("Brown")
-        turtle.pensize(5)
+        turtle.bgcolor(255, 255, 255)
+        turtle.pensize(3)
         list_dict = []
-        count = 0
-        colors = ["Medium blue", "Dark Red", "Sea Green"]
         for figure in list_rectangles:
             list_dict.append(figure.to_dictionary())
+        count = 0
+        colors = ["Red", "FireBrick", "Dark Red"]
+
+        turtle.color("Red")
+        turtle.write("Rectangle task", False, "center", ("", 60, ""))
+        turtle.penup()
+        turtle.setposition(0, -30)
+        turtle.pendown()
+        turtle.write("by: jonatan Mazo", False, "center", ("", 20, ""))
+        turtle.penup()
+        turtle.setposition(-320, -180)
+        turtle.pendown()
+        turtle.pencolor("dark red")
+        turtle.delay(100)
+        turtle.forward(640)
+
+        turtle.clear()
         for attr in list_dict:
+            turtle.delay(0)
             turtle.penup()
             turtle.setposition(attr["x"], attr["y"])
             turtle.pendown()
             turtle.pencolor(colors[count])
+            turtle.delay(10)
             print(attr)
-            turtle.forward(attr["width"])
-            turtle.left(90)
-            turtle.forward(attr["height"])
-            turtle.left(90)
-            turtle.forward(attr["width"])
-            turtle.left(90)
-            turtle.forward(attr["height"])
-            turtle.left(90)
-            # turtle.clear()
+            for edge in range(2):
+                turtle.forward(attr["width"])
+                turtle.left(90)
+                turtle.forward(attr["height"])
+                turtle.left(90)
             count += 1
+
+        turtle.delay(0)
+        turtle.penup()
+        turtle.setposition(-320, -180)
+        turtle.pendown()
+        turtle.pencolor("dark red")
+        turtle.delay(100)
+        turtle.forward(640)
+        turtle.clear()
+
+        turtle.delay(0)
+        turtle.penup()
+        turtle.setposition(0, 0)
+        turtle.pendown()
+        turtle.color("Red")
+        turtle.write("Square task", False, "center", ("", 60, ""))
+        turtle.penup()
+        turtle.setposition(0, -30)
+        turtle.pendown()
+        turtle.write("by: jonatan Mazo", False, "center", ("", 20, ""))
+        turtle.penup()
+        turtle.setposition(-320, -180)
+        turtle.pendown()
+        turtle.pencolor("dark red")
+        turtle.delay(100)
+        turtle.forward(640)
+        turtle.clear()
+
+        list_dict = []
+        for figure in list_squares:
+            list_dict.append(figure.to_dictionary())
+
+        count = 0
+        colors = ["Red", "FireBrick", "Dark Red"]
+
+        for attr in list_dict:
+            turtle.delay(0)
+            turtle.penup()
+            turtle.setposition(attr["x"], attr["y"])
+            turtle.pendown()
+            turtle.pencolor(colors[count])
+            turtle.delay(10)
+            print(attr)
+            for edge in range(4):
+                turtle.forward(attr["size"])
+                turtle.left(90)
+            count += 1
+
+        turtle.delay(0)
+        turtle.penup()
+        turtle.setposition(-320, -180)
+        turtle.pendown()
+        turtle.pencolor("dark red")
+        turtle.delay(100)
+        turtle.forward(640)
+        turtle.clear()
+
+        turtle.clear()
+        turtle.delay(0)
+        turtle.penup()
+        turtle.setposition(0, 0)
+        turtle.pendown()
+        turtle.color("Red")
+        turtle.write("Thanks for watch", False, "center", ("", 60, ""))
+        turtle.penup()
+        turtle.setposition(0, -30)
+        turtle.pendown()
+        turtle.write("Holberton", False, "center", ("", 20, ""))
+        turtle.penup()
+        turtle.setposition(-320, -180)
+        turtle.pendown()
+        turtle.pencolor("dark red")
+        turtle.delay(20)
+        turtle.forward(640)
+        turtle.clear()
+
+        turtle.delay(0)
+        turtle.penup()
+        turtle.setposition(0, 0)
+        turtle.pendown()
+        turtle.clear()
+        red = 0
+        for sp in range(300):
+            if red < 252:
+                red += 2
+            else:
+                red = 253
+            turtle.pencolor(red, 0, 0)
+            turtle.pensize(sp / 90)
+
+            for tri in range(5):
+                turtle.forward(4 * (sp / 2))  # Size of pligon
+                turtle.left(45)  # degrees to make a polygon
+            turtle.left(sp / 100)
+
+        turtle.penup()
+        turtle.setposition(0, 300)
+        turtle.pendown()
+        turn = turtle.heading()
+        turtle.left(360 - turn)
+        turtle.pencolor("White")
+        turtle.pensize(20)
+        turtle.backward(100)
+        turtle.forward(200)
+        turtle.penup()
+        turtle.setposition(0, 290)
+        turtle.pendown()
+        turtle.color("Black")
+        turtle.write("Click to close", False, "center", ("", 10, ""))
+        turtle.penup()
+        turtle.setposition(0, 0)
+        turtle.pendown()
+
+        print("\nprocess successfully completed")
+        print("\n----------------------------\n")
+        print("waiting for a click to close the turtle window")
+        turtle.exitonclick()  # Use a click of mouse to exit
