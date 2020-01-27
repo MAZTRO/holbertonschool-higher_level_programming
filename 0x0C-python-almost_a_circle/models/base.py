@@ -32,16 +32,9 @@ class Base:
         dic = []
         if len(list_objs) != 0:
             for obj in list_objs:
-                name = obj.__class__.__name__
                 dic.append(obj.to_dictionary())
-                name += ".json"
-            with open(name, "w") as file:
-                file.write(cls.to_json_string(dic))
-        else:
-            name = cls.__name__
-            name += ".json"
-            with open(name, "w") as file:
-                file.write("[]")
+        with open(cls.__name__ + ".JSON", "w") as file:
+            file.write(cls.to_json_string(dic))
 
     @staticmethod
     def from_json_string(json_string):
