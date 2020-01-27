@@ -11,13 +11,14 @@ class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
 
         super().__init__(id)
-        self.verify(width=width, height=height, x=x, y=y, id=id)
+        dic = {width: width, height: height, x: x, y: y, id: id}
+        self.verify(dic)
         self.__width = width
         self.__height = height
         self.__x = x
         self.__y = y
 
-    def verify(self, my_dict):
+    def verify(self, my_dict={}):
         """ Verify """
         for key, val in my_dict.items():
             if (val is not int):
@@ -35,7 +36,8 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         """ Set_ width """
-        self.verify(width=value)
+        dic = {"width": value}
+        self.verify(dic)
         self.__width = value
 
     @property
@@ -46,7 +48,8 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         """ Set_heigth """
-        self.verify(height=value)
+        dic = {"height": value}
+        self.verify(dic)
         self.__height = value
 
     @property
@@ -57,7 +60,8 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         """ Set_x """
-        self.verify(x=value)
+        dic = {"x": value}
+        self.verify(dic)
         self.__x = value
 
     @property
@@ -68,7 +72,8 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         """ Set_y """
-        self.verify(y=value)
+        dic = {"y": value}
+        self.verify(dic)
         self.__y = value
 
     def area(self):
