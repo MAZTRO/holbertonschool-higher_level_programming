@@ -47,9 +47,14 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """ Create """
-        test = cls(20, 45, 63, 24)
-        test.update(**dictionary)
-        return test
+        if (cls.__name__ == "Square"):
+            test = cls(20)
+            test.update(**dictionary)
+            return test
+        if (cls.__name__ == "Rectangle"):
+            test = cls(20, 45, 63, 24)
+            test.update(**dictionary)
+            return test
 
     @classmethod
     def load_from_file(cls):
