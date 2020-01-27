@@ -21,12 +21,12 @@ class Rectangle(Base):
         """ Verify """
         for key, val in kwargs.items():
             if (key == "width"):
-                if (type(val) is not int or val is None):
+                if (type(val) is not int):
                     raise TypeError("width must be an integer")
                 if (val <= 0):
                     raise ValueError("width must be >= 0")
             if (key == "height"):
-                if (type(val) is not int or val is None):
+                if (type(val) is not int):
                     raise TypeError("height must be an integer")
                 if (val <= 0):
                     raise ValueError("height must be >= 0")
