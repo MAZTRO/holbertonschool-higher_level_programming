@@ -33,7 +33,7 @@ class Base:
         if len(list_objs) != 0:
             for obj in list_objs:
                 dic.append(obj.to_dictionary())
-        with open(cls.__name__ + ".JSON", "w") as file:
+        with open((cls.__name__ + ".json"), "w") as file:
             file.write(cls.to_json_string(dic))
 
     @staticmethod
