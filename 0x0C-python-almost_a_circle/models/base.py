@@ -42,7 +42,7 @@ class Base:
         if json_string is not None:
             return (json.loads(json_string))
         else:
-            return ("[]")
+            return ([])
 
     @classmethod
     def create(cls, **dictionary):
