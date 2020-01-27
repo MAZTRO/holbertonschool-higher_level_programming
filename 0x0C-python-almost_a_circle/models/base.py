@@ -49,12 +49,10 @@ class Base:
         """ Create """
         if (cls.__name__ == "Square"):
             test = cls(20)
-            test.update(**dictionary)
-            return test
         if (cls.__name__ == "Rectangle"):
-            test = cls(20, 45, 63, 24)
-            test.update(**dictionary)
-            return test
+            test = cls(20, 45)
+        test.update(**dictionary)
+        return test
 
     @classmethod
     def load_from_file(cls):
