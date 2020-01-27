@@ -11,22 +11,22 @@ class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
 
         super().__init__(id)
-        dic = {width: width, height: height, x: x, y: y, id: id}
+        dic = {"width": width, "height": height, "x": x, "y": y}
         self.verify(dic)
         self.__width = width
         self.__height = height
         self.__x = x
         self.__y = y
 
-    def verify(self, my_dict={}):
+    def verify(self, my_dict):
         """ Verify """
         for key, val in my_dict.items():
-            if (val is not int):
+            if (type(val) is not int):
                 raise TypeError("{} must be an integer".format(key))
-            elif (val <= 0 and key != "x" and key != "y"):
+            elif (val <= 0 and key in ["width", "height"]):
                 raise ValueError("{} must be > 0".format(key))
-            elif (val < 0 and key != "width" and key != "height"):
-                raise ValueError("{} must be > 0".format(key))
+            elif (val < 0 and key in ["x", "y"]):
+                raise ValueError("{} must be >= 0".format(key))
 
     @property
     def width(self):
