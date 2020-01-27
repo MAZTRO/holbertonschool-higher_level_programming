@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-"""Task 2 """
+
 import unittest
+import pep8
 from models.base import Base
 from models.rectangle import Rectangle
 
@@ -8,8 +9,15 @@ from models.rectangle import Rectangle
 class Testrectangle(unittest.TestCase):
     """ """
 
+    def test_pep8_conformance_rectangle(self):
+        """Test that we conform to PEP8."""
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['models/rectangle.py'])
+        self.assertEqual(result.total_errors, 0, "\
+Found code style errors (and warnings).")
+
     def test_subclass(self):
-        self.assertTrue( issubclass(Rectangle, Base))
+        self.assertTrue(issubclass(Rectangle, Base))
 
     def test_parameters(self):
         """ """
@@ -36,7 +44,14 @@ class Testrectangle(unittest.TestCase):
         self.assertEqual(r3.y, 0)
 
         with self.assertRaises(TypeError):
-                r4 = Rectangle()
+            r4 = Rectangle()
+
+    def test_string(self):
+        """Task 3 """
+        with self.assertRaises(TypeError):
+            R1 = Rectangle(1.01, 3)
+        with self.assertRaises(TypeError):
+            R1 = Rectangle(1.01, 3)
 
     def test_type_param(self):
         """Task 3 """
@@ -55,7 +70,7 @@ class Testrectangle(unittest.TestCase):
             R4 = Rectangle(True, 4)
             raise TypeError()
 
-        """ HEIGTH TESTING """
+        """ HEIGHT TESTING """
         with self.assertRaises(TypeError):
             H1 = Rectangle(5, 1.76)
             raise TypeError()
@@ -97,5 +112,6 @@ class Testrectangle(unittest.TestCase):
             H1 = Rectangle(5, 9, 5, -4798576398576)
             raise ValueError()
 
+
 if __name__ == "_main_":
-   unittest.main()
+    unittest.main()

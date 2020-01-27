@@ -1,12 +1,17 @@
 #!/usr/bin/python3
+""" Base File """
+
+
 import json
 import turtle
 
 
 class Base:
+    """ BASE """
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """ Init """
         if id is not None:
             self.id = id
         else:
@@ -15,6 +20,7 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """ To JSON """
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return ([])
         else:
@@ -22,6 +28,7 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """ JSON save """
         dic = []
         if len(list_objs) != 0:
             for obj in list_objs:
@@ -38,6 +45,7 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
+        """ From JSON """
         if json_string is not None or len(json_string) != 0:
             return (json.loads(json_string))
         else:
@@ -45,12 +53,14 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
+        """ Create """
         test = cls(20, 45, 63, 24)
         test.update(**dictionary)
         return test
 
     @classmethod
     def load_from_file(cls):
+        """ Load """
         name = cls.__name__
         name += ".json"
         with open(name, "r") as my_file:
@@ -62,6 +72,7 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
+        """ SAVE CSV """
         dic = []
         if len(list_objs) != 0:
             for obj in list_objs:
@@ -78,6 +89,7 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
+        """ LOAD CSV """
         name = cls.__name__
         name += ".csv"
         with open(name, "r") as my_file:
@@ -89,6 +101,7 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
+        """ DRAW """
         turtle.title("Holberton Grafics   --    by Jonatan Mazo")
         turtle.colormode(255)
         turtle.setup(width=1280, height=720, startx=0, starty=0)
