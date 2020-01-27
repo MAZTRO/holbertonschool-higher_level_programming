@@ -17,29 +17,15 @@ class Rectangle(Base):
         self.__x = x
         self.__y = y
 
-    def verify(self, **kwargs):
+    def verify(self, my_dict):
         """ Verify """
         for key, val in kwargs.items():
-            if (key == "width"):
-                if (type(val) is not int):
-                    raise TypeError("width must be an integer")
-                if (val <= 0):
-                    raise ValueError("width must be >= 0")
-            if (key == "height"):
-                if (type(val) is not int):
-                    raise TypeError("height must be an integer")
-                if (val <= 0):
-                    raise ValueError("height must be >= 0")
-            if (key == "x"):
-                if (type(val) is not int):
-                    raise TypeError("x must be an integer")
-                if (val < 0):
-                    raise ValueError("x must be >= 0")
-            if (key == "y"):
-                if (type(val) is not int):
-                    raise TypeError("y must be an integer")
-                if (val < 0):
-                    raise ValueError("y must be >= 0")
+            if (val is not int):
+                raise TypeError("{} must be an integer".format(key))
+            elif (val <= 0 and key != "x" and key != "y"):
+                raise ValueError("{} must be > 0".format(key))
+            elif (val < 0 and key != "width" and key != "height"):
+                raise ValueError("{} must be > 0".format(key))
 
     @property
     def width(self):
