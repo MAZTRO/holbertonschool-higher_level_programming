@@ -63,12 +63,15 @@ class Base:
         """ Load """
         name = cls.__name__
         name += ".json"
-        with open(name, "r") as my_file:
-            inst = []
-            ins_dic = cls.from_json_string(my_file.read())
-            for dic in ins_dic:
-                inst.append(cls.create(**dic))
-        return inst
+        try:
+            with open(name, "r") as my_file:
+                inst = []
+                ins_dic = cls.from_json_string(my_file.read())
+                for dic in ins_dic:
+                    inst.append(cls.create(**dic))
+            return inst
+        except:
+            return ([])
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
