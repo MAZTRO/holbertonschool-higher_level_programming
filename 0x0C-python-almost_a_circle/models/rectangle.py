@@ -19,7 +19,7 @@ class Rectangle(Base):
 
     def verify(self, my_dict):
         """ Verify """
-        for key, val in kwargs.items():
+        for key, val in my_dict.items():
             if (val is not int):
                 raise TypeError("{} must be an integer".format(key))
             elif (val <= 0 and key != "x" and key != "y"):
