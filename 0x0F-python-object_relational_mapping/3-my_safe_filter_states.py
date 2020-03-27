@@ -7,15 +7,21 @@ if __name__ == '__main__':
 
     db = MySQLdb.connect(host="localhost\
 ", user=av[1], passwd=av[2], db=av[3], port=3306)
+
     cur = db.cursor()
 
-    """ cur.execute("SELECT * FROM states WHERE name LIKE \
-'N%' ORDER BY states.id ASC")
+    """ if ("TRUNCATE" in av[4]):
+        state = av[4].split(';')
+        state[0].strip("'")
+
+    cur.execute("SELECT * FROM states WHERE name = '{}' ORDER BY \
+states.id ASC".format(state[0].strip("'")))
+
     for row in cur.fetchall():
         print(row) """
 
     cur.execute("SELECT * FROM states")
-    fil = ["N", "n"]
     for row in cur.fetchall():
-        if (row[1][0] in fil):
+        # print(row[1], av[4])
+        if (row[1] == av[4]):
             print(row)
