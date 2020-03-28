@@ -19,7 +19,7 @@ if __name__ == '__main__':
                 sts = av[4]
 
     cur.execute("SELECT * FROM states WHERE name = '{}' ORDER BY \
-states.id ASC".format(state[0].strip("'")))
+states.id ASC".format(sts))
 
     for row in cur.fetchall():
         print(row) """
@@ -27,7 +27,7 @@ states.id ASC".format(state[0].strip("'")))
     cur.execute("SELECT * FROM states")
     for row in cur.fetchall():
         # print(row[1], av[4])
-        if (row[1] == av[4]):
+        if (row[1] in av[4]):
             print(row)
 
     db.close()
