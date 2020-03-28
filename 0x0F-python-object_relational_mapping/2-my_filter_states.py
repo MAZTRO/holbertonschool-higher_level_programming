@@ -19,3 +19,6 @@ states.id ASC".format(av[4]))
         # print(row[1], av[4])
         if (row[1] == av[4]):
             print(row) """
+
+    db.close()
+    cur.close()

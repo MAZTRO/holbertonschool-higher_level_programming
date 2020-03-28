@@ -10,9 +10,13 @@ if __name__ == '__main__':
 
     cur = db.cursor()
 
-    """ if ("TRUNCATE" in av[4]):
-        state = av[4].split(';')
-        state[0].strip("'")
+    """ if (len(av) > 4):
+            if ("TRUNCATE" in av[4]):
+                state = av[4].split(';')
+                st = state[0].split("'")
+                sts = st[0]
+            else:
+                sts = av[4]
 
     cur.execute("SELECT * FROM states WHERE name = '{}' ORDER BY \
 states.id ASC".format(state[0].strip("'")))
@@ -25,3 +29,6 @@ states.id ASC".format(state[0].strip("'")))
         # print(row[1], av[4])
         if (row[1] == av[4]):
             print(row)
+
+    db.close()
+    cur.close()

@@ -7,12 +7,13 @@ if __name__ == '__main__':
 
     db = MySQLdb.connect(host="localhost\
 ", user=av[1], passwd=av[2], db=av[3], port=3306)
-    cur = db.cursor()
 
-    cur.execute("SELECT * FROM states ORDER BY states.id ASC")
+    cur = db.cursor()
+    cur.execute("SELECT cities.id, cities.name, states.name FROM cities \
+INNER JOIN states ON cities.state_id=states.id ORDER BY cities.id ASC")
 
     for row in cur.fetchall():
-        print("({}, '{}')".format(row[0], row[1]))
+        print(row)
 
     db.close()
     cur.close()
