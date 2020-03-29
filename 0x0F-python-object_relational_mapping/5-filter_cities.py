@@ -32,8 +32,8 @@ ORDER BY cities.id ASC""", (sts,))
         else:
             print(data[idx][0]) """
 
-    db.close()
-    cur.close()
+cur.close()
+db.close()
 
 
 """     name = sys.argv[4]
