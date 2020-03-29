@@ -24,13 +24,14 @@ ORDER BY cities.id ASC""", (sts,))
 
     data = cur.fetchall()
 
-    """ print(', '.join([row[0] for row in data])) """
+    rows = list(map(''.join, data))
+    print(', '.join(rows))
 
-    for idx in range(len(data)):
+    """ for idx in range(len(data)):
         if (idx < len(data) - 1):
             print(data[idx][0], end=", ")
         else:
-            print(data[idx][0])
+            print(data[idx][0]) """
 
     cur.close()
     db.close()
