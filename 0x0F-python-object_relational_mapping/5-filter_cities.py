@@ -23,11 +23,14 @@ WHERE states.id = cities.state_id AND states.name = %s \
 ORDER BY cities.id ASC""", (sts,))
 
     data = cur.fetchall()
-    for idx in range(len(data)):
+
+    print(', '.join([row[0] for row in data]))
+
+"""     for idx in range(len(data)):
         if (idx < len(data) - 1):
             print(data[idx][0], end=", ")
         else:
-            print(data[idx][0])
+            print(data[idx][0]) """
 
     db.close()
     cur.close()
