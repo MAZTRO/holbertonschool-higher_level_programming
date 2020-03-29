@@ -18,9 +18,9 @@ if __name__ == '__main__':
         else:
             sts = av[4]
 
-    cur.execute("SELECT cities.name FROM cities, states WHERE \
-states.name = %s AND cities.state_id = states.id ORDER BY \
-cities.id ASC", (sts,))
+    cur.execute("""SELECT cities.name FROM states, cities \
+WHERE states.id = cities.state_id AND states.name = %s \
+ORDER BY cities.id ASC""", (sts,))
 
     data = cur.fetchall()
     for idx in range(len(data)):
@@ -31,3 +31,20 @@ cities.id ASC", (sts,))
 
     db.close()
     cur.close()
+
+
+"""     name = sys.argv[4]
+    sql = 'SELECT cities.name
+             FROM states, cities
+             WHERE states.id = cities.state_id
+             AND states.name = %s
+             ORDER BY cities.id ASC'
+    cur = db.cursor()
+    cur.execute(sql, (name,))
+
+    query_states = cur.fetchall()
+
+    print(', '.join([row[0] for row in query_states]))
+
+    cur.close()
+    db.close() """
