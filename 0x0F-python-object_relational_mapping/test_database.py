@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+# "Arizona'; TRUNCATE TABLE states ; SELECT * FROM states WHERE name = '"
 import MySQLdb
 import sys
 

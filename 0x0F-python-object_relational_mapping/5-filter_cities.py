@@ -27,11 +27,5 @@ ORDER BY cities.id ASC""", (sts,))
     rows = list(map(''.join, data))
     print(', '.join(rows))
 
-    """ for idx in range(len(data)):
-        if (idx < len(data) - 1):
-            print(data[idx][0], end=", ")
-        else:
-            print(data[idx][0]) """
-
     cur.close()
     db.close()
