@@ -24,30 +24,13 @@ ORDER BY cities.id ASC""", (sts,))
 
     data = cur.fetchall()
 
-    print(', '.join([row[0] for row in data]))
+    """ print(', '.join([row[0] for row in data])) """
 
-"""     for idx in range(len(data)):
+    for idx in range(len(data)):
         if (idx < len(data) - 1):
             print(data[idx][0], end=", ")
         else:
-            print(data[idx][0]) """
-
-cur.close()
-db.close()
-
-
-"""     name = sys.argv[4]
-    sql = 'SELECT cities.name
-             FROM states, cities
-             WHERE states.id = cities.state_id
-             AND states.name = %s
-             ORDER BY cities.id ASC'
-    cur = db.cursor()
-    cur.execute(sql, (name,))
-
-    query_states = cur.fetchall()
-
-    print(', '.join([row[0] for row in query_states]))
+            print(data[idx][0])
 
     cur.close()
-    db.close() """
+    db.close()
