@@ -1,2 +1,2 @@
-lol
-asdas
+O(n)
+O(nlog(n))
