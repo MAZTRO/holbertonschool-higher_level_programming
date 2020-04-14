@@ -1,2 +1,0 @@
-Token "read:user"
-5d429f9d74ce7e4e545abf7c77e48b1b4998ce07
