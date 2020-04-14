@@ -15,10 +15,11 @@ else:
     value = {'q': ""}
 
 req = requests.post('http://0.0.0.0:5000/search_user', data=value)
-json = req.json()
-if (len(req.json()) == 0):
-    print("No result")
-elif ('id' not in json or 'name' not in json):
+try:
+    json = req.json()
+    if (len(req.json()) == 0):
+        print("No result")
+    else:
+        print("[{}] {}".format(json['id'], json['name']))
+except ValueError:
     print("Not a valid JSON")
-else:
-    print("[{}] {}".format(json['id'], json['name']))
