@@ -2,8 +2,9 @@
 """ File to fetch a url """
 import urllib.request
 
-with urllib.request.urlopen('https://intranet.hbtn.io/status') as response:
-    res = response.read()
+if __name__ == "__main__":
+    with urllib.request.urlopen('https://intranet.hbtn.io/status') as response:
+        res = response.read()
     print("Body response:")
     print("\t- type: ", type(res))
     print("\t- content: ", res)
