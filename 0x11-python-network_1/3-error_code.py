@@ -8,10 +8,11 @@ import urllib.request
 import urllib.parse
 import sys
 
-av = sys.argv
-try:
+if __name__ == "__main__":
+    av = sys.argv
+    try:
         with urllib.request.urlopen(av[1]) as response:
-                page = response.read().decode('utf-8')
-                print(page)
-except urllib.error.URLError as errno:
-                print("Error code: ", errno.code)
+            page = response.read().decode('utf-8')
+            print(page)
+    except urllib.error.URLError as errno:
+        print("Error code: {}".format(errno.code))

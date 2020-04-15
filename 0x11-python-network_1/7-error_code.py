@@ -7,10 +7,11 @@
 import requests
 import sys
 
-av = sys.argv
+if __name__ == "__main__":
+    av = sys.argv
 
-req = requests.get(av[1])
-if (req.status_code == requests.codes.ok):
-    print(req.text)
-else:
-    print("Error code: ", req.status_code)
+    req = requests.get(av[1])
+    if (req.status_code == requests.codes.ok):
+        print(req.text)
+    else:
+        print("Error code: {}".format(req.status_code))

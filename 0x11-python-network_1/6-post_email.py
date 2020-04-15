@@ -7,8 +7,9 @@
 import requests
 import sys
 
-av = sys.argv
+if __name__ == "__main__":
+    av = sys.argv
 
-value = {'email': av[2]}
-req = requests.post(av[1], data=value)
-print(req.text)
+    value = {'email': av[2]}
+    req = requests.post(av[1], data=value)
+    print(req.text)

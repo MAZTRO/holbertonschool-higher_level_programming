@@ -7,13 +7,14 @@
 import requests
 import sys
 
-av = sys.argv
+if __name__ == "__main__":
+    av = sys.argv
 
-auth = {'Authorization': 'token ' + av[2]}
-url = "https://api.github.com/users/"
-req = requests.get('{}{}'.format(url, av[1]), headers=auth)
-json = req.json()
-if ('id' not in json):
-    print('None')
-else:
-    print(json['id'])
+    auth = {'Authorization': 'token ' + av[2]}
+    url = "https://api.github.com/users/"
+    req = requests.get('{}{}'.format(url, av[1]), headers=auth)
+    json = req.json()
+    if ('id' not in json):
+        print('None')
+    else:
+        print(json['id'])
