@@ -10,7 +10,7 @@ function Factorial (num) {
 }
 
 if (parseInt(process.argv[2])) {
-  num = parseInt(process.argv[2])
+  num = parseInt(process.argv[2]);
   console.log(Factorial(num));
 } else {
   console.log(1);
