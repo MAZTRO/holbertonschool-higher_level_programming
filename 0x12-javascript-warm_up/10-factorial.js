@@ -1,7 +1,6 @@
 #!/usr/bin/node
-let num = parseInt(process.argv[2]);
+let num;
 
-/* Recursion function */
 function Factorial (num) {
   if (num === 0) {
     return 1;
@@ -9,11 +8,10 @@ function Factorial (num) {
     return num * Factorial(num - 1);
   }
 }
-if (process.argv[2] % 1 === 0 || process.argv[2] === undefined) {
-  num = 1;
-  if (num === 1 || num < 0) {
-    console.log(1);
-  } else {
+
+if (parseInt(process.argv[2])) {
+  num = parseInt(process.argv[2])
   console.log(Factorial(num));
-  }
+} else {
+  console.log(1);
 }
