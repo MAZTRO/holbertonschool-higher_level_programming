@@ -7,10 +7,10 @@ module.exports = class Rectangle {
     }
   }
 
-  print() {
+  print () {
     let x = 0;
     while (x < this.height) {
-      console.log("X".repeat(this.width));
+      console.log('X'.repeat(this.width));
       x++;
     }
   }
