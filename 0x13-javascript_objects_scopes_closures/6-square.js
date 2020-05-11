@@ -8,7 +8,7 @@ module.exports = class Square extends Rectangle {
   charPrint (c) {
     let character = 'C';
 
-    if (c === undefined) {
+    if (c == undefined) {
       character = 'X';
     }
     let x = 0;
