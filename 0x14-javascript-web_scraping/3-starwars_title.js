@@ -8,7 +8,5 @@ request(`https://swapi-api.hbtn.io/api/films/${args[0]}/`, (error, response, bod
   }
   if (response.statusCode === 200) {
     console.log(JSON.parse(body).title);
-  } else if (args[0] === '7') {
-    console.log('The Force Awakens');
   }
 });
