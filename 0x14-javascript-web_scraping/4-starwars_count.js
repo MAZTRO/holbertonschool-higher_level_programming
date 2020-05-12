@@ -3,9 +3,8 @@ const args = process.argv.slice(2);
 const request = require('request');
 
 request(args[0], (error, response, body) => {
-  if (error) {
-    console.error('error:', error);
-  }
+  if (error) console.error('error:', error);
+
   if (response.statusCode === 200) {
     let count = 0;
     const movieList = JSON.parse(body).results;
