@@ -11,8 +11,11 @@ request(args[0], (error, response, body) => {
 
     for (let idx = 0; idx < movieList.length; idx++) {
       const characters = movieList[idx].characters;
-      if (characters.indexOf('https://swapi-api.hbtn.io/api/people/18/') !== -1) {
-        count -= -1;
+      for (let idx2 = 0; idx2 < characters.length; idx2++) {
+        const urlList = characters[idx2].split('/');
+        if (urlList.indexOf('18') !== -1) {
+          count -= -1;
+        }
       }
     }
     console.log(count);
