@@ -2,14 +2,11 @@
 const args = process.argv.slice(2);
 const request = require('request');
 
-request('https://swapi-api.hbtn.io/api/films/:2', (error, response, body) => {
+request(`https://swapi-api.hbtn.io/api/films/${args[0]}/`, (error, response, body) => {
   if (error) {
     console.error('error:', error);
   }
-  console.log(response.statusCode);
-  console.log(response.body);
-
   if (response.statusCode === 200) {
-    console.log(JSON.stringify(body));
+    console.log(JSON.parse(body).title);
   }
 });
