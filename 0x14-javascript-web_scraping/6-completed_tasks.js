@@ -8,7 +8,6 @@ request(args[0], (error, response, body) => {
   if (response.statusCode === 200) {
     let countTrue = 0;
     let countFalse = 0;
-    let len = 0;
     const TodoList = JSON.parse(body);
     const final = {};
 
@@ -19,8 +18,7 @@ request(args[0], (error, response, body) => {
         countFalse -= -1;
       }
       final[TodoList[idx].userId] = countTrue;
-      console.log(countTrue, countFalse, TodoList[idx].userId);
-      if (countTrue + countFalse === 10) {
+      if (countTrue + countFalse === 20) {
         countTrue = countFalse = 0;
       }
     }
